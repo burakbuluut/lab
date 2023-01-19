@@ -1,0 +1,20 @@
+connector-thehive:
+    image: opencti/connector-thehive:latest
+    environment:
+      - OPENCTI_URL=http://192.168.2.184:8080
+      - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
+      - CONNECTOR_ID=f8a05dc5-4553-4838-9eba-f7197c94b464
+      - CONNECTOR_TYPE=EXTERNAL_IMPORT
+      - CONNECTOR_NAME=TheHive
+      - CONNECTOR_SCOPE=thehive
+      - CONNECTOR_CONFIDENCE_LEVEL=80 # From 0 (Unknown) to 100 (Fully trusted)
+      - CONNECTOR_UPDATE_EXISTING_DATA=false
+      - CONNECTOR_LOG_LEVEL=info
+      - THEHIVE_URL=http://192.168.2.183:9000
+      - THEHIVE_API_KEY=RKBygPWBMF9dhoGbPc38RxEwT5LYIpzQ
+      - THEHIVE_CHECK_SSL=false
+      - THEHIVE_ORGANIZATION_NAME=SIBER-SOC
+      - THEHIVE_IMPORT_FROM_DATE=2021-01-01T00:00:00 # Optional
+    restart: always
+    depends_on:
+	- opencti
